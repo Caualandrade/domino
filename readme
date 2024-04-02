@@ -1,9 +1,9 @@
-# Documentação do Jogo de Domino
+#Documentação do Jogo de Domino
 
-## Introdução
+##Introdução
 Este documento descreve a implementação de um jogo de domino em linguagem C. O jogo consiste na criação de jogadores, inicialização das peças, embaralhamento das peças, empilhamento das peças em uma pilha, e desempilhamento de peças durante o jogo.
 
-## Estrutura do Código
+##Estrutura do Código
 O código está organizado da seguinte maneira:
 
 1. Inclusão de Bibliotecas: Inclui as bibliotecas necessárias para o funcionamento do código.
@@ -14,7 +14,7 @@ O código está organizado da seguinte maneira:
 6. Funções para Criar Jogadores e Listar Jogadores: Funções para criar jogadores e listar os jogadores criados.
 7. Função Principal (main): Função principal que gerencia a execução do jogo.
 
-## Funcionamento do Código
+##Funcionamento do Código
 1. **Inicialização das Peças**: A função `inicializa_pecas` preenche um array de estruturas PecaDomino com todas as combinações possíveis de peças do domino.
 2. **Embaralhamento das Peças**: A função `embaralha_pecas` embaralha as peças do domino usando o algoritmo de embaralhamento Fisher-Yates.
 3. **Criação de Jogadores**: A função `criar_jogadores` permite ao usuário criar os jogadores do jogo, inserindo seus nomes.
@@ -24,7 +24,7 @@ O código está organizado da seguinte maneira:
 7. **Desempilhamento de Peças**: A função `pop` desempilha uma peça da pilha.
 8. **Interface do Jogo**: A função `interface` exibe as regras básicas do jogo de domino.
 
-## Execução do Código
+##Execução do Código
 Ao executar o programa, o usuário é solicitado a inserir o número de jogadores (2 ou 4) e os nomes dos jogadores são inseridos. As peças são embaralhadas e empilhadas na pilha. Uma peça é desempilhada e exibida como exemplo de funcionamento da pilha.
 
 
