@@ -18,10 +18,32 @@ Jogador *criar_jogadores(int num_jog)
     Jogador *jogadores = (Jogador *)malloc(num_jog * sizeof(Jogador));
     for (int i = 0; i < num_jog; i++)
     {
-        printf("Qual é o nome do jogador %d? ", i + 1);
+        printf("Qual eh o nome do jogador %d? ", i + 1);
         scanf("%s", jogadores[i].nome);
     }
     return jogadores;
+}
+
+void listar_jogadores(int num_jogadores, Jogador *lista_jogadores)
+{
+    printf("Lista de jogadores:\n");
+    for (int i = 0; i < num_jogadores; i++)
+    {
+        printf("Jogador %d: %s\n", i + 1, lista_jogadores[i].nome);
+    }
+}
+
+int verificar_qntd_jogadores(int qntd)
+{
+    if (qntd == 2 || qntd == 4)
+    {
+        return 1;
+    }
+    else
+    {
+        printf("Numero de jogadores invalidos. Apenas 2 ou 4 jogadores\n");
+        return 0;
+    }
 }
 
 void inicializa_pecas(PecaDomino pecas[])
@@ -38,19 +60,6 @@ void inicializa_pecas(PecaDomino pecas[])
     }
 }
 
-int verificar_qntd_jogadores(int qntd)
-{
-    if (qntd == 2 || qntd == 4)
-    {
-        return 1;
-    }
-    else
-    {
-        printf("Numero de jogadores invalidos\n");
-        return 0;
-    }
-}
-
 void embaralha_pecas(PecaDomino pecas[])
 {
     srand(time(NULL));
@@ -63,27 +72,40 @@ void embaralha_pecas(PecaDomino pecas[])
         pecas[i] = pecas[j];
         pecas[j] = temp;
     }
+}
 
-    printf("Peças embaralhadas:\n");
+void listar_pecas(PecaDomino *pecas)
+{
+    printf("Pecas embaralhadas:\n");
     for (int i = 0; i < 28; i++)
     {
-        printf("[%d|%d] ", pecas[i].lado_esq, pecas[i].lado_dir);
+        printf("\n[%d|%d]", pecas[i].lado_esq, pecas[i].lado_dir);
     }
     printf("\n");
+}
+
+void interface()
+{
+    printf("##########################\n");
+    printf("######### DOMINO #########\n");
+    printf("######### REGRAS #########\n 1- Permitido 2 ou 4 jogadores\n 2- \n 3- \n 4- \n");
+    printf("##########################\n");
 }
 
 int main()
 {
 
+    interface();
+
     PecaDomino pecas[28];
+
     inicializa_pecas(pecas);
     embaralha_pecas(pecas);
+    listar_pecas(pecas);
+
     int num_jogadores;
     int permitido = 0;
 
-    printf("######### DOMINO #########\n");
-    printf("## Regras ##\n 1 - So eh permitido 2 ou 4 jogadores\n 2- \n 3- \n 4- \n");
-    printf("#################\n");
     do
     {
         printf("Quantos jogadores deseja criar?");
@@ -91,22 +113,10 @@ int main()
         permitido = verificar_qntd_jogadores(num_jogadores);
     } while (permitido == 0);
 
-    Jogador *lista_jogadores = criar_jogadores(num_jogadores);
+    Jogador *jogadores = criar_jogadores(num_jogadores);
+    listar_jogadores(num_jogadores, jogadores);
 
-    /*
-    printf("Lista de jogadores:\n");
-    for (int i = 0; i < num_jogadores; i++)
-    {
-        printf("Jogador %d: %s\n", i + 1, lista_jogadores[i].nome);
-    }
-
-    for (int i = 0; i < 28; i++)
-    {
-        printf("[%d|%d]\n ", pecas[i].lado_esq, pecas[i].lado_dir);
-    }
-    printf("\n");
-    */
-    free(lista_jogadores);
+    free(jogadores);
 
     return 0;
 }
