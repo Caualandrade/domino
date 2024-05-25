@@ -33,9 +33,16 @@ int verificar_qntd_jogadores(int qntd) {
   }
 }
 
-void distribuirNaMao(tp_pilha *pilha,PecaDomino *pecaDesempilhada, tp_listad *maoDoJogador){
-  for(int i = 0; i < 7; i++){
+void distribuirNaMao(tp_pilha *pilha, PecaDomino *pecaDesempilhada,
+                     tp_listad *maoDoJogador) {
+  for (int i = 0; i < 7; i++) {
     pop(pilha, pecaDesempilhada);
     insere_listad_no_fim(maoDoJogador, *pecaDesempilhada);
   }
+}
+
+void distribuirNaMaoCava(tp_pilha *pilha, PecaDomino *pecaDesempilhada,
+                     tp_listad *maoDoJogador) {
+    pop(pilha, pecaDesempilhada);
+    insere_listad_no_fim(maoDoJogador, *pecaDesempilhada);
 }
