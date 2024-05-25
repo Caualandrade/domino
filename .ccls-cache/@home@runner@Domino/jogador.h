@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "listaDE.h"
+#include "listade.h"
 
 typedef struct {
   char nome[50];
@@ -18,7 +18,7 @@ Jogador *criar_jogadores(int num_jog) {
 }
 
 void listar_jogadores(int num_jogadores, Jogador *lista_jogadores) {
-  printf("Lista de jogadores:\n");
+  printf("\nLista de jogadores:\n");
   for (int i = 0; i < num_jogadores; i++) {
     printf("Jogador %d: %s\n", i + 1, lista_jogadores[i].nome);
   }
